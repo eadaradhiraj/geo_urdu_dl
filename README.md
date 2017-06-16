@@ -42,7 +42,3 @@ Download https://film.geourdu.com/jolly-llb-2-2017.html (2016) movie
 Download https://film.geourdu.com/jolly-llb-2-2017.html (2016) movie using google search 
 
     ~ $ python geo_urdu_dl.py -m 'jolly llb 2' -d ~/Videos
-
-Notes
------
-Please do not overuse and abuse this and destroy Animeplus.tv. Please donate some cash to animeplus.tv I really would not like people to destroy Animeplus because of greedy downloading. Use this wisely and don't be evil.
