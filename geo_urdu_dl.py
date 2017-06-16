@@ -1,8 +1,12 @@
+#!/usr/bin/env python
+# -- coding: utf-8 --
+
 import google
 import urllib2
 import re
 import downloads
 import os
+import sys
 import logging
 
 # request headers while establishing connection with the url
@@ -26,8 +30,12 @@ def gethtml(url):
                         headers=request_headers)
     ).read()
 
+#Get html of geourdu link and search for http download link and download it
 def parse_geourdu_link(folder, link):
-    down_url = re.search(r'file:\s*\"(http.*?)\"\,',gethtml(link)).group(1)
+    try:
+        down_url = re.search(r'file:\s*\"(http.*?)\"\,',gethtml(link)).group(1)
+    except AttributeError:
+        sys.exit('Something went wrong! Double-check geourdu link!')
     filename = down_url.split('/')[-1]
     logger.info('Downloading: {0}'.format(down_url))
     downloads.download(url=down_url,
@@ -35,6 +43,7 @@ def parse_geourdu_link(folder, link):
                        progress=True)
     logger.info('Finished downloading {0} to {1}'.format(filename,folder))
 
+#Searching for links geourdu links using google
 def get_links(movie_title, folder):
     logger.info('Searching: {0}'.format(movie_title))
     links= [res for res in google.search('{0} geo urdu'.format(movie_title), stop=10) if 'film.geourdu.com' in res]
@@ -60,8 +69,10 @@ if __name__ == '__main__':
     # parser.add_argument('--directory', '-d', type=str, default='.' help='Give folder location')
     args = parser.parse_args()
     if args.movie is not None:
+        #If google search is used to find the geourdu link
         get_links(args.movie, folder=args.directory)
     elif args.direct_link is not None:
+        #If geourdu link is already known
         parse_geourdu_link(args.direct_link, folder=args.directory)
     else:
         print('You have not given any links!!')
