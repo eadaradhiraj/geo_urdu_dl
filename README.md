@@ -11,6 +11,7 @@ Dependencies
   * Python 2.7
   * google (``pip install google``)
   * downloads (``pip install downloads``)
+  
   Note
   ----
   Please keep in mind that the youtube-dl module interferes with the google module and import errors may be caused as there     is a google module within the youtube-dl module.
