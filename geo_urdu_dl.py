@@ -68,10 +68,10 @@ if __name__ == '__main__':
 
     # parser.add_argument('--directory', '-d', type=str, default='.' help='Give folder location')
     args = parser.parse_args()
-    if args.movie is not None:
+    if args.movie and args.direct_link is None:
         #If google search is used to find the geourdu link
         get_links(args.movie, folder=args.directory)
-    elif args.direct_link is not None:
+    elif args.direct_link and args.movie is None:
         #If geourdu link is already known
         parse_geourdu_link(args.direct_link, folder=args.directory)
     else:
