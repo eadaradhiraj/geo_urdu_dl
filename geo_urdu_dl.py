@@ -46,7 +46,7 @@ def parse_geourdu_link(folder, link):
 #Searching for links geourdu links using google
 def get_links(movie_title, folder):
     logger.info('Searching: {0}'.format(movie_title))
-    links= [res for res in google.search('{0} geo urdu'.format(movie_title), stop=10) if 'film.geourdu.com' in res]
+    links= [res for res in google.search('site:film.geourdu.com {0}'.format(movie_title), stop=10) if 'film.geourdu.com' in res]
 
     if links:
         for link in links:
