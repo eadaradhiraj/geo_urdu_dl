@@ -3,7 +3,7 @@ Geo Urdu Movie Download Script
 
 About
 -----
-Geo urdu Movie Download Script downloads movies from fil.geourdu.com. The user can employ the option of finding the movie link through google search or inputting the the geourdu link to download the file
+Geo urdu Movie Download Script downloads movies from film.geourdu.com. The user can employ the option of finding the movie link through google search or inputting the the geourdu link to download the file
 
 Dependencies
 ------------
