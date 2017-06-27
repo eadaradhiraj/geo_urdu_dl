@@ -8,7 +8,7 @@ Geo urdu Movie Download Script downloads movies from film.geourdu.com. The user 
 Dependencies
 ------------
 
-  * Python 2.7
+  * Python 2.7 & Python3
   * google (``pip install google``)
   * downloads (``pip install downloads``)
   
