@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 # -- coding: utf-8 --
 
+import sys
+if sys.version_info[0] == 2:
+    from urllib2 import urlopen, Request
+elif sys.version_info[0] == 3:
+    from urllib.request import urlopen, Request
+else:
+    sys.exit('Python Version is not supported!!!')
 import google
-import urllib2
 import re
 import downloads
 import os
-import sys
 import logging
 
 # request headers while establishing connection with the url
@@ -25,10 +30,9 @@ logger = logging.getLogger(__name__)
 
 # Get html source of url
 def gethtml(url):
-    return urllib2.urlopen(
-        urllib2.Request(url,
-                        headers=request_headers)
-    ).read()
+    return urlopen(
+        Request(url, headers=request_headers)
+    ).read().decode('utf-8')
 
 #Get html of geourdu link and search for http download link and download it
 def parse_geourdu_link(folder, link):
