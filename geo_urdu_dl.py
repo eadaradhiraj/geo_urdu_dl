@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 def gethtml(url):
     return urlopen(
         Request(url, headers=request_headers)
-    ).read().decode('utf-8')
+    ).read().decode('utf-8', 'ignore)
 
 #Get html of geourdu link and search for http download link and download it
 def parse_geourdu_link(folder, link):
